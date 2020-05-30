@@ -445,7 +445,8 @@ class ModelBase(object):
         self.loss_history.append ( [float(loss[1]) for loss in losses] )
 
         if (not io.is_colab() and self.iter % 10 == 0) or \
-           (io.is_colab() and self.iter % 100 == 0):           
+           (io.is_colab() and self.iter % 1 == 0):       
+            print('doing preview?')    
             plist = []
 
             if io.is_colab():
@@ -460,6 +461,7 @@ class ModelBase(object):
             for preview, filepath in plist:
                 preview_lh = ModelBase.get_loss_history_preview(self.loss_history, self.iter, preview.shape[1], preview.shape[2])
                 img = (np.concatenate ( [preview_lh, preview], axis=0 ) * 255).astype(np.uint8)
+                print(f'writting preview to {filepath}')
                 cv2_imwrite (filepath, img )
 
         self.iter += 1

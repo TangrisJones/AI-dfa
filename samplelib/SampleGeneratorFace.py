@@ -42,6 +42,7 @@ class SampleGeneratorFace(SampleGeneratorBase):
         print('**SAMPLE PATH: ', samples_path)
         print(os.listdir(samples_path))
         samples = SampleLoader.load (SampleType.FACE, samples_path)
+        print(samples)
         self.samples_len = len(samples)
 
         self.initialized = False
