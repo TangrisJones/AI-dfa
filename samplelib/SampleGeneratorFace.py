@@ -4,6 +4,7 @@ import traceback
 
 import cv2
 import numpy as np
+import os
 
 from core import mplib
 from core.joblib import SubprocessGenerator, ThisThreadGenerator
@@ -38,6 +39,8 @@ class SampleGeneratorFace(SampleGeneratorBase):
         else:
             self.generators_count = max(1, generators_count)
 
+        print('**SAMPLE PATH: ', samples_path)
+        print(os.listdir(samples_path))
         samples = SampleLoader.load (SampleType.FACE, samples_path)
         self.samples_len = len(samples)
 
