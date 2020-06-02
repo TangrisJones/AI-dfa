@@ -47,6 +47,7 @@ def main (model_class_name=None,
         model = models.import_model(model_class_name)(is_training=False,
                                                       saved_models_path=saved_models_path,
                                                       force_gpu_idxs=force_gpu_idxs,
+                                                      pretraining_data_path="/content/pretrained_SAEHD",  # HACK dev
                                                       cpu_only=cpu_only)
 
         predictor_func, predictor_input_shape, cfg = model.get_MergerConfig()

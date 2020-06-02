@@ -446,7 +446,7 @@ class ModelBase(object):
 
         if (not io.is_colab() and self.iter % 10 == 0) or \
            (io.is_colab() and self.iter % 1 == 0):       
-            print('doing preview')    
+            print('saving preview')    
             plist = []
 
             if io.is_colab():

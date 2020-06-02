@@ -73,6 +73,7 @@ def trainerThread (s2c, c2s, e,
                     model.create_backup()             
 
             def send_preview():
+                io.log_info('sending preview...')
                 if not debug:
                     previews = model.get_previews()
                     c2s.put ( {'op':'show', 'previews': previews, 'iter':model.get_iter(), 'loss_history': model.get_loss_history().copy() } )
