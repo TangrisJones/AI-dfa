@@ -182,7 +182,8 @@ class ModelBase(object):
 
         self.autobackup_hour = self.options.get('autobackup_hour', 0)
         self.write_preview_history = self.options.get('write_preview_history', False)
-        self.target_iter = self.options.get('target_iter',0)
+        # self.target_iter = self.options.get('target_iter',0)
+        self.ask_target_iter = 1000010  # DEV HACK
         self.random_flip = self.options.get('random_flip',True)
 
         self.on_initialize()
